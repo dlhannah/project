@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+ 
+<title>Test</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+<style>
+#content{ height:500px; 
+	width: 900px; 
+	border-style:solid; 
+	border-width: 1px; 	
+	background-color: lightblue; 
+	margin: 80px 70px;
+  text-align: center;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;}
+
+#goodImages {
+  margin: 50px auto 0 auto;
+  background: #ddf;
+  width: 910px;
+  height: 120px;
+  padding: 20px;
+  border: 2px solid #333;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -moz-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+  box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+}
+
+#goodImages div {
+  float: left;
+  width: 58px;
+  height: 78px;
+  padding: 10px;
+  padding-top: 40px;
+  padding-bottom: 0;
+  border: 2px solid #333;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin: 0 0 0 10px;
+  background: #fff;
+}
+</style>
+ 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+ 
+<script type="text/javascript">
+	$(init);
+	
+	
+	function init(){
+ 		//creates array of images
+		var imgArray = new Array();
+
+		imgArray[0] = new Image();
+		imgArray[0].src = 'FP/tree.png';
+
+		imgArray[1] = new Image();
+		imgArray[1].src = 'FP/tree2.png';
+		
+		for ( var i=0; i<3; i++ ) {
+    	$('<div>' + imgArray[i] + '</div>').data( 'good', imgArray[i] ).attr( 'id', 		'images'+imgArray[i] ).appendTo( '#goodImages' ).draggable( {
+      containment: '#content',
+      stack: '#goodImages div',
+      cursor: 'move',
+      revert: true
+    } );
+  }
+
+	}
+</script>
+
+</head>
+
+<body>
+
+<div id="content"></div> <!--Contains forest -->
+	<div id="goodImages"></div> <!--Gives good imges -->
+	<!-- <div id="badImages"</div> --> <!--Gives bad imges -->
+</div>
+
+
+
+
+</body>
+</html>
